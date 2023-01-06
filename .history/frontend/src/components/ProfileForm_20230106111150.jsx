@@ -113,7 +113,7 @@ function ProfileForm(props) {
           fullscreen={true}
         >
           <Modal.Header closeButton>
-            <Modal.Title>เลือกตำแหน่งในแผนที่</Modal.Title>
+            <Modal.Title>เลือก</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <iframe

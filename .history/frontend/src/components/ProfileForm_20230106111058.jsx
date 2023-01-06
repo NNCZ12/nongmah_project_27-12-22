@@ -27,6 +27,8 @@ function ProfileForm(props) {
   );
   const [validationError, setValidationError] = useState({});
 
+  
+
   const convert = (selected) => {
     const day = selected.getDate();
     const month =
@@ -37,10 +39,6 @@ function ProfileForm(props) {
 
     return `${year}-${month}-${day}`;
   };
-
-  const [show_map, setShowMap] = useState(false);
-  const handleCloseMap = () => setShowMap(false);
-  const handleShowMap = () => setShowMap(true);
 
   const changeHandler = (event) => {
     setImage(event.target.files[0]);
@@ -113,7 +111,7 @@ function ProfileForm(props) {
           fullscreen={true}
         >
           <Modal.Header closeButton>
-            <Modal.Title>เลือกตำแหน่งในแผนที่</Modal.Title>
+            <Modal.Title>Choose Location in Map</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <iframe
