@@ -106,7 +106,7 @@ function ProfileForm(props) {
     });
 
     return () => {
-      window.google.maps.event.removeListener(listener);
+      window.google.mapsS.event.removeListener(listener);
     };
   }, [position]);
   

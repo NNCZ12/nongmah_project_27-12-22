@@ -93,23 +93,24 @@ function ProfileForm(props) {
   };
 
   const mapRef = useRef(null);
-  const [position, setPosition] = useState({ lat: -34.397, lng: 150.644 });
 
   useEffect(() => {
     const map = new window.google.maps.Map(mapRef.current, {
-      center: position,
+      center: { lat: 14.883808255279892, lng: 102.02061987279153 },
       zoom: 8
     });
 
     const listener = map.addListener('click', (event) => {
-      setPosition({ lat: event.latLng.lat(), lng: event.latLng.lng() });
+      const lat = event.latLng.lat();
+      const lng = event.latLng.lng();
+      console.log(`Latitude: ${lat}, Longitude: ${lng}`);
     });
 
     return () => {
       window.google.maps.event.removeListener(listener);
     };
-  }, [position]);
-  
+  }, []);
+
   return (
     // Dog Profile Form
     <div className="form-wrapper">

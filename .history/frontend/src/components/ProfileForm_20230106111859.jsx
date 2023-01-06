@@ -1,4 +1,4 @@
-import { React, useState,useEffect,useRef } from "react";
+import { React, useState } from "react";
 import { Form, FloatingLabel, Button, Modal } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -92,24 +92,9 @@ function ProfileForm(props) {
       });
   };
 
-  const mapRef = useRef(null);
-  const [position, setPosition] = useState({ lat: -34.397, lng: 150.644 });
+  // console.log(selectVaccineDate);
+  // console.log(selectSpotOnDate);
 
-  useEffect(() => {
-    const map = new window.google.maps.Map(mapRef.current, {
-      center: position,
-      zoom: 8
-    });
-
-    const listener = map.addListener('click', (event) => {
-      setPosition({ lat: event.latLng.lat(), lng: event.latLng.lng() });
-    });
-
-    return () => {
-      window.google.maps.event.removeListener(listener);
-    };
-  }, [position]);
-  
   return (
     // Dog Profile Form
     <div className="form-wrapper">
@@ -124,13 +109,9 @@ function ProfileForm(props) {
       <Form onSubmit={createProfile}>
         {/* Choose Location */}
         <Form.Group>
-          <div className="flex">
-            <Button onClick={handleShowMap} className="text-black bg-blue-300 w-[30%]">
-              เลือกสถานที่ที่น้องหมาชอบอยู่
-            </Button>
-            <p className="w-[5%]"></p>
-            <Form.Control className="w-[30%]" type="text" id="" />
-          </div>
+          <Button onClick={handleShowMap} className="text-black bg-blue-300">
+            เลือกตำแหน่งที่น้องหมาชอบอยู่
+          </Button>
 
           <Modal
             show={show_map}
@@ -144,8 +125,7 @@ function ProfileForm(props) {
             </Modal.Header>
             <Modal.Body>
               <iframe
-               ref={mapRef}
-                src="https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=Space+Needle,Seattle+WA"
+                src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d61693.732755014666!2d102.0165!3d14.8892!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sth!2sth!4v1671588919621!5m2!1sth!2sth"
                 width="100%"
                 height="100%"
                 style={{ border: "0" }}
@@ -161,8 +141,7 @@ function ProfileForm(props) {
               <Button variant="primary">Understood</Button>
             </Modal.Footer>
           </Modal>
-        </Form.Group>{" "}
-        <br />
+        </Form.Group>
         {/* Upload Image */}
         <Form.Group controlId="Image" className="mb-3">
           <Form.Label>อัปโหลดภาพน้องหมา</Form.Label>

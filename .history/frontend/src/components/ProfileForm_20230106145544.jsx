@@ -106,10 +106,10 @@ function ProfileForm(props) {
     });
 
     return () => {
-      window.google.maps.event.removeListener(listener);
+      window.google.map.event.removeListener(listener);
     };
   }, [position]);
-  
+
   return (
     // Dog Profile Form
     <div className="form-wrapper">

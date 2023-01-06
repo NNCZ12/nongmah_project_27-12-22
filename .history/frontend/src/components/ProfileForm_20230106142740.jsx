@@ -1,4 +1,4 @@
-import { React, useState,useEffect,useRef } from "react";
+import { React, useState,useEffect } from "react";
 import { Form, FloatingLabel, Button, Modal } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -93,23 +93,24 @@ function ProfileForm(props) {
   };
 
   const mapRef = useRef(null);
-  const [position, setPosition] = useState({ lat: -34.397, lng: 150.644 });
 
   useEffect(() => {
     const map = new window.google.maps.Map(mapRef.current, {
-      center: position,
+      center: { lat: 14.883808255279892, lng: 102.02061987279153 },
       zoom: 8
     });
 
     const listener = map.addListener('click', (event) => {
-      setPosition({ lat: event.latLng.lat(), lng: event.latLng.lng() });
+      const lat = event.latLng.lat();
+      const lng = event.latLng.lng();
+      console.log(`Latitude: ${lat}, Longitude: ${lng}`);
     });
 
     return () => {
       window.google.maps.event.removeListener(listener);
     };
-  }, [position]);
-  
+  }, []);
+
   return (
     // Dog Profile Form
     <div className="form-wrapper">
@@ -145,7 +146,7 @@ function ProfileForm(props) {
             <Modal.Body>
               <iframe
                ref={mapRef}
-                src="https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=Space+Needle,Seattle+WA"
+                src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d61693.732755014666!2d102.0165!3d14.8892!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sth!2sth!4v1671588919621!5m2!1sth!2sth"
                 width="100%"
                 height="100%"
                 style={{ border: "0" }}
