@@ -25,7 +25,7 @@ function App() {
         apiKey={"AIzaSyDB0mpQP-2ZRabGNQgHxtx457MIUeFU6JM"}
         render={render}
       >
-        <TestMaps />
+        <Test />
       </Wrapper>
       <Routes>
         <Route index element={<Welcome />} />

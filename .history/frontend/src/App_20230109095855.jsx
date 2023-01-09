@@ -14,19 +14,14 @@ function App() {
       case Status.LOADING:
         return <Spinner />;
       case Status.FAILURE:
-        return <h1>Error</h1>;
+        return h1;
       case Status.SUCCESS:
-        return <TestMaps />;
+        return <MyMapComponent />;
     }
   };
   return (
     <>
-      <Wrapper
-        apiKey={"AIzaSyDB0mpQP-2ZRabGNQgHxtx457MIUeFU6JM"}
-        render={render}
-      >
-        <TestMaps />
-      </Wrapper>
+      <Wrapper apiKey={"YOUR_API_KEY"} render={render} />;
       <Routes>
         <Route index element={<Welcome />} />
         <Route path="/profilelist" element={<ProfileList />} />

@@ -21,11 +21,8 @@ function App() {
   };
   return (
     <>
-      <Wrapper
-        apiKey={"AIzaSyDB0mpQP-2ZRabGNQgHxtx457MIUeFU6JM"}
-        render={render}
-      >
-        <TestMaps />
+      <Wrapper apiKey={"AIzaSyDB0mpQP-2ZRabGNQgHxtx457MIUeFU6JM"} render={render}>
+        <MyMapComponent />
       </Wrapper>
       <Routes>
         <Route index element={<Welcome />} />

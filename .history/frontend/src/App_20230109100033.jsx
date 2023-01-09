@@ -21,12 +21,7 @@ function App() {
   };
   return (
     <>
-      <Wrapper
-        apiKey={"AIzaSyDB0mpQP-2ZRabGNQgHxtx457MIUeFU6JM"}
-        render={render}
-      >
-        <TestMaps />
-      </Wrapper>
+      <Wrapper apiKey={"AIzaSyDB0mpQP-2ZRabGNQgHxtx457MIUeFU6JM"} render={render} />  />;
       <Routes>
         <Route index element={<Welcome />} />
         <Route path="/profilelist" element={<ProfileList />} />

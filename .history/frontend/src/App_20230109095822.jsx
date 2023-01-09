@@ -10,23 +10,19 @@ import TestMaps from "./pages/TestMaps";
 
 function App() {
   const render = (status) => {
-    switch (status) {
-      case Status.LOADING:
-        return <Spinner />;
-      case Status.FAILURE:
-        return <h1>Error</h1>;
-      case Status.SUCCESS:
-        return <TestMaps />;
-    }
+  switch (status) {
+    case Status.LOADING:
+      return <Spinner />;
+    case Status.FAILURE:
+      return <ErrorComponent />;
+    case Status.SUCCESS:
+      return <MyMapComponent />;
+  }
+};
   };
   return (
     <>
-      <Wrapper
-        apiKey={"AIzaSyDB0mpQP-2ZRabGNQgHxtx457MIUeFU6JM"}
-        render={render}
-      >
-        <TestMaps />
-      </Wrapper>
+      <Wrapper apiKey={"YOUR_API_KEY"} render={render} />;
       <Routes>
         <Route index element={<Welcome />} />
         <Route path="/profilelist" element={<ProfileList />} />

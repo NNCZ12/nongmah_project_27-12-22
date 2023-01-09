@@ -16,17 +16,12 @@ function App() {
       case Status.FAILURE:
         return <h1>Error</h1>;
       case Status.SUCCESS:
-        return <TestMaps />;
+        return <T />;
     }
   };
   return (
     <>
-      <Wrapper
-        apiKey={"AIzaSyDB0mpQP-2ZRabGNQgHxtx457MIUeFU6JM"}
-        render={render}
-      >
-        <TestMaps />
-      </Wrapper>
+      <Wrapper apiKey={"YOUR_API_KEY"} render={render} />;
       <Routes>
         <Route index element={<Welcome />} />
         <Route path="/profilelist" element={<ProfileList />} />
