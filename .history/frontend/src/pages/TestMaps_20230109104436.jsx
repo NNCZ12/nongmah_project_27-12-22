@@ -204,7 +204,11 @@ function useDeepCompareEffectForMaps(callback, dependencies) {
   React.useEffect(callback, dependencies.map(useDeepCompareMemoize));
 }
 
+window.addEventListener("DOMContentLoaded", () => {
+  const root = createRoot(document.getElementById("root"));
 
+  root.render(<TestMaps />);
+});
 
 export default TestMaps;
 // [END maps_react_map]

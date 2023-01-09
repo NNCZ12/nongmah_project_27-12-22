@@ -205,6 +205,7 @@ function useDeepCompareEffectForMaps(callback, dependencies) {
 }
 
 
+});
 
 export default TestMaps;
 // [END maps_react_map]
