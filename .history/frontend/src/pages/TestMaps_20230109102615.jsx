@@ -209,6 +209,4 @@ window.addEventListener("DOMContentLoaded", () => {
 
   root.render(<TestMaps />);
 });
-
-export default TestMaps;
 // [END maps_react_map]

@@ -10,7 +10,7 @@ const render = (status) => {
   return <h1>{status}</h1>;
 };
 
-const TestMaps = () => {
+export defaconst TestMaps = () => {
   // [START maps_react_map_component_app_state]
   const [clicks, setClicks] = React.useState([]);
   const [zoom, setZoom] = React.useState(3); // initial zoom
@@ -209,6 +209,4 @@ window.addEventListener("DOMContentLoaded", () => {
 
   root.render(<TestMaps />);
 });
-
-export default TestMaps;
 // [END maps_react_map]

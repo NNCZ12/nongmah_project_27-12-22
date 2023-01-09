@@ -5,7 +5,7 @@ import { createRoot } from "react-dom/client";
 import { Wrapper } from "@googlemaps/react-wrapper";
 import { createCustomEqual } from "fast-equals";
 import { isLatLngLiteral } from "@googlemaps/typescript-guards";
-
+import { TestMaps } from './../../../.history/frontend/src/pages/TestMaps_20230109102255';
 const render = (status) => {
   return <h1>{status}</h1>;
 };
@@ -209,6 +209,4 @@ window.addEventListener("DOMContentLoaded", () => {
 
   root.render(<TestMaps />);
 });
-
-export default TestMaps;
 // [END maps_react_map]

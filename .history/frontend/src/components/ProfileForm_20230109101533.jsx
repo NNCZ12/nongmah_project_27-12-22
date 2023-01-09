@@ -403,7 +403,7 @@ function ProfileForm(props) {
           สีเหลือง : ดุบ้างบางครั้ง <br />
           สีแดง : ดุ กัดคน ห้ามเข้าใกล้
         </p>
-        <Button onClick={()=> navigate("/testmaps")}></Button>
+        bt
         <Modal.Footer>
           <Button
             className="bg-red-500 hover:bg-red-400 border-none"

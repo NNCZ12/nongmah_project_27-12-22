@@ -5,10 +5,10 @@ import "react-datepicker/dist/react-datepicker.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
-
+import {  useNavigate } from "react-router-dom";
 
 function ProfileForm(props) {
-  
+  const navigate = useNavigate();
   const navigate = useNavigate();
   const [vaccine, setVaccine] = useState("");
   const [spot_on, setSpotOn] = useState("");
@@ -403,7 +403,6 @@ function ProfileForm(props) {
           สีเหลือง : ดุบ้างบางครั้ง <br />
           สีแดง : ดุ กัดคน ห้ามเข้าใกล้
         </p>
-        <Button onClick={()=> navigate("/testmaps")}></Button>
         <Modal.Footer>
           <Button
             className="bg-red-500 hover:bg-red-400 border-none"
