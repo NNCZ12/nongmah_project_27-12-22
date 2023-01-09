@@ -92,7 +92,23 @@ function ProfileForm(props) {
       });
   };
 
-  
+  const mapRef = useRef(null);
+  const [position, setPosition] = useState({ lat: -34.397, lng: 150.644 });
+
+  useEffect(() => {
+    const map = new window.google.maps.Map(mapRef.current, {
+      center: position,
+      zoom: 8
+    });
+
+    const listener = map.addListener('click', (event) => {
+      setPosition({ lat: event.latLng.lat(), lng: event.latLng.lng() });
+    });
+
+    return () => {
+      window.google.maps.event.removeListener(listener);
+    };
+  }, [position]);
   
   return (
     // Dog Profile Form
@@ -107,36 +123,7 @@ function ProfileForm(props) {
       <br />
       <Form onSubmit={createProfile}>
         {/* Choose Location */}
-        <Form.Group>
-          <div className="flex">
-            <Button onClick={handleShowMap} className="text-black bg-blue-300  inline-flex">
-              เลือกสถานที่ที่น้องหมาชอบอยู่
-            </Button>
-            &nbsp;
-            <Form.Control className=" inline-flex" type="text" id="" disabled  />
-          </div>
-
-          <Modal
-            show={show_map}
-            onHide={handleCloseMap}
-            backdrop="static"
-            keyboard={false}
-            fullscreen={true}
-          >
-            <Modal.Header closeButton>
-              <Modal.Title>เลือกตำแหน่งในแผนที่</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              
-            </Modal.Body>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={handleCloseMap}>
-                Close
-              </Button>
-              <Button variant="primary">Understood</Button>
-            </Modal.Footer>
-          </Modal>
-        </Form.Group>{" "}
+        
         <br />
         {/* Upload Image */}
         <Form.Group controlId="Image" className="mb-3">

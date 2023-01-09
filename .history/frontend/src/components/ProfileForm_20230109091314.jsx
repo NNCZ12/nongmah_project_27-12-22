@@ -109,11 +109,11 @@ function ProfileForm(props) {
         {/* Choose Location */}
         <Form.Group>
           <div className="flex">
-            <Button onClick={handleShowMap} className="text-black bg-blue-300  inline-flex">
+            <Button onClick={handleShowMap} className="text-black bg-blue-300 f inline-flex">
               เลือกสถานที่ที่น้องหมาชอบอยู่
             </Button>
             &nbsp;
-            <Form.Control className=" inline-flex" type="text" id="" disabled  />
+            <Form.Control className="flex inline-flex" type="text" id="" />
           </div>
 
           <Modal

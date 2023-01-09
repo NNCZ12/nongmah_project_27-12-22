@@ -113,7 +113,7 @@ function ProfileForm(props) {
               เลือกสถานที่ที่น้องหมาชอบอยู่
             </Button>
             &nbsp;
-            <Form.Control className=" inline-flex" type="text" id="" disabled  />
+            <Form.Control className="f inline-flex" type="text" id="" />
           </div>
 
           <Modal

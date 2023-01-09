@@ -109,11 +109,11 @@ function ProfileForm(props) {
         {/* Choose Location */}
         <Form.Group>
           <div className="flex">
-            <Button onClick={handleShowMap} className="text-black bg-blue-300  inline-flex">
+            <Button onClick={handleShowMap} className="text-black bg-blue-300 w-[30%]">
               เลือกสถานที่ที่น้องหมาชอบอยู่
             </Button>
-            &nbsp;
-            <Form.Control className=" inline-flex" type="text" id="" disabled  />
+            <p className="w-[5%]"></p>
+            <Form.Control className="w-[30%]" type="text" id="" />
           </div>
 
           <Modal
@@ -127,7 +127,16 @@ function ProfileForm(props) {
               <Modal.Title>เลือกตำแหน่งในแผนที่</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              
+              <iframe
+               ref={mapRef}
+                src="https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=Space+Needle,Seattle+WA"
+                width="100%"
+                height="100%"
+                style={{ border: "0" }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
             </Modal.Body>
             <Modal.Footer>
               <Button variant="secondary" onClick={handleCloseMap}>
