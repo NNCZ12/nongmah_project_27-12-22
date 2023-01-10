@@ -1,5 +1,5 @@
 // const window = require('../lib/windowOrGlobal');
-
+import window
 let counter = 0;
 let scriptMap = typeof window !== 'undefined' && window._scriptMap || new Map();
 i
