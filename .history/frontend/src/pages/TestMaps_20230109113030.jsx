@@ -80,7 +80,7 @@ const TestMaps = () => {
   // [START maps_react_map_component_app_return]
   return (
     <div style={{ display: "flex", height: "100%" }}>
-      <Wrapper apiKey={"AIzaSyBfHIvyafkqU33sOpvLnEWWrRuR4H2xtLs"} render={render}>
+      <Wrapper apiKey={"AIzaSyA0yTGha-a5-qvZSrKQM1m4yN1WsTneocc"} render={render}>
         <Map
           center={center}
           onClick={onClick}
