@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
-import {camelize} from '../lib/String';
-import {makeCancelable} from '../lib/cancelablePromise';
+import {camelize} from '';
+import {makeCancelable} from './lib/cancelablePromise';
 
 const mapStyles = {
   container: {
@@ -42,14 +42,14 @@ const evtNames = [
   'zoom_changed'
 ];
 
-export {wrapper as GoogleApiWrapper} from '../GoogleApiComponent';
-export {Marker} from '../components/Marker';
-// export {InfoWindow} from './components/InfoWindow';
-// export {HeatMap} from './components/HeatMap';
-// export {Polygon} from './components/Polygon';
-// export {Polyline} from './components/Polyline';
-// export {Circle} from './components/Circle';
-// export {Rectangle} from './components/Rectangle';
+export {wrapper as GoogleApiWrapper} from './GoogleApiComponent';
+export {Marker} from './components/Marker';
+export {InfoWindow} from './components/InfoWindow';
+export {HeatMap} from './components/HeatMap';
+export {Polygon} from './components/Polygon';
+export {Polyline} from './components/Polyline';
+export {Circle} from './components/Circle';
+export {Rectangle} from './components/Rectangle';
 
 export class Map extends React.Component {
   constructor(props) {

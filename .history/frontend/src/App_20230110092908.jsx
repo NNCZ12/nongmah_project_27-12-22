@@ -11,7 +11,7 @@ function App() {
       <Routes>
         <Route index element={<Welcome />} />
         <Route path="/profilelist" element={<ProfileList />} />
-        <Route path="/map" element={<Map />} />
+        <Route path="/maps" element={<Map />} />
       </Routes>
     </>
   );
