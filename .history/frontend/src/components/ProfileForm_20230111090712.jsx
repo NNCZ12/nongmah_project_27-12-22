@@ -5,7 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
-
+import Maps from "./Maps";
 
 
 function ProfileForm(props) {
@@ -130,8 +130,9 @@ function ProfileForm(props) {
               <Modal.Title>เลือกตำแหน่งในแผนที่</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <div id="maps"></div>
-              
+              render(){
+                
+              }
             </Modal.Body>
             <Modal.Footer>
               <Button variant="secondary" onClick={handleCloseMap}>

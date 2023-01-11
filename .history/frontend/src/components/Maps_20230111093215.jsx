@@ -1,6 +1,8 @@
 import {React,useEffect,useCallback,useState,useMemo} from "react";
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import ReactDOM from "react-dom/client";
+import { BrowserRouter as Router } from "react-router-dom";
+
 import "leaflet/dist/leaflet.css";
 // import { statesData } from "./data";
 

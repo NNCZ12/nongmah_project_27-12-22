@@ -1,11 +1,9 @@
-import {React,useEffect,useCallback,useState,useMemo} from "react";
+import {React,useEffect,useCallback,useState} from "react";
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
-import ReactDOM from "react-dom/client";
 import "leaflet/dist/leaflet.css";
 // import { statesData } from "./data";
 
 const center = [14.875238941094505, 102.01287487655536];
-const zoom = 13
 
 function DisplayPosition({ map }) {
   const [position, setPosition] = useState(() => map.getCenter())
@@ -60,6 +58,4 @@ function Maps({}) {
   );
 }
 
-ReactDOM.createRoot(document.getElementById('maps')).render( <Maps/>)
-
-// export default Maps;
+render(<Maps />)

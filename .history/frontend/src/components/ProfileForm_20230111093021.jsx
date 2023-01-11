@@ -130,7 +130,7 @@ function ProfileForm(props) {
               <Modal.Title>เลือกตำแหน่งในแผนที่</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <div id="maps"></div>
+              <div id></div>
               
             </Modal.Body>
             <Modal.Footer>
