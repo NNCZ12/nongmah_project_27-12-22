@@ -1,0 +1,50 @@
+import {React,useEffect,useCallback,useState,useMemo} from "react";
+import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
+import ReactDOM from "react-dom/client";
+import "leaflet/dist/leaflet.css";
+// import { statesData } from "./data";
+
+const center = [14.875238941094505, 102.01287487655536];
+const zoom = 13
+
+function DisplayPosition({ map }) {
+  
+
+  return (
+    
+  )
+}
+
+function Maps() {
+  const [map, setMap] = useState(null)
+
+  const displayMap = useMemo(
+    () => (
+      <MapContainer
+        center={center}
+        zoom={zoom}
+        scrollWheelZoom={false}
+        ref={setMap}>
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+      </MapContainer>
+    ),
+    [],
+  )
+
+  return (
+    <div>
+      <p>
+      latitude: {position.lat.toFixed(4)}, longitude: {position.lng.toFixed(4)}{' '}
+      <button onClick={onClick}>reset</button>
+    </p>
+      {map ? <DisplayPosition map={map} /> : null}
+      {displayMap}
+    </div>
+  )
+}
+
+export default Maps;
+// ReactDOM.render(<Maps/>, document.getElementById('maps'));
