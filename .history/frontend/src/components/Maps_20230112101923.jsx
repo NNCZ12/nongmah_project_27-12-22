@@ -16,7 +16,10 @@ function Maps(props) {
     iconUrl: image,
     iconSize: [40, 40],
   });
- 
+  const { addPosition } = useContext(PositionContext);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
   const [position, setPosition] = useState(null);
   const center = [14.875238941094505, 102.01287487655536];
   const zoom = 15;
@@ -39,7 +42,7 @@ function Maps(props) {
         <>
           <p>Lat : {position.lat}</p>
           <p>Lon : {position.lng}</p>
-          
+          <Form onSubmit={handleSubmit}><Form.Control></Form.C></Form>
         </>
       )}
       <div className="p-1 h-[90%]">

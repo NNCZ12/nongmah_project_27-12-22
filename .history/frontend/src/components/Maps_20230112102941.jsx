@@ -57,7 +57,7 @@ function Maps(props) {
         </MapContainer>
       </div>
       <Modal.Footer>
-        <Button variant="secondary" onClick={props.onClick}>
+        <Button variant="secondary" onClick={(props.onClick)}>
           Close
         </Button>
         <Button variant="success" type="submit" onClick={() => {}}>

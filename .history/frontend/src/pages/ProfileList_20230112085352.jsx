@@ -78,8 +78,7 @@ function ProfileList() {
           centered 
           backdrop="static"
           size='xl'
-          dialogClassName="modal-90w"
-          
+          dialogClassName="modal-90w"cl
         >
           <Modal.Header closeButton>
             <Modal.Title>อัปโหลดข้อมูลน้องหมา</Modal.Title>

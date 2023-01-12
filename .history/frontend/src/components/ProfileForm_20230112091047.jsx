@@ -9,7 +9,7 @@ import Maps from "./Maps";
 
 
 
-function ProfileForm(props) {
+function ProfileForm(props,position) {
   
   const navigate = useNavigate();
   const [vaccine, setVaccine] = useState("");
@@ -96,7 +96,7 @@ function ProfileForm(props) {
       });
   };
 
-
+  
   
   return (
     // Dog Profile Form
@@ -165,7 +165,6 @@ function ProfileForm(props) {
             className="py-3"
             value={vaccine}
             onChange={(e) => setVaccine(e.target.value)}
-            required
           >
             <option>การรับวัคซีน</option>
             <option value="received">ได้รับแล้ว</option>

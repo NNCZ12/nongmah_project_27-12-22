@@ -165,9 +165,9 @@ function ProfileForm(props) {
             className="py-3"
             value={vaccine}
             onChange={(e) => setVaccine(e.target.value)}
-            required
+            re
           >
-            <option>การรับวัคซีน</option>
+            <option value={null}>การรับวัคซีน</option>
             <option value="received">ได้รับแล้ว</option>
             <option value="have_not_received">ยังไม่ได้รับ</option>
             <option value="undentify">ไม่ระบุ</option>
