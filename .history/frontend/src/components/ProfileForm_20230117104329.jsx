@@ -27,7 +27,7 @@ function ProfileForm(props) {
   const [appearance, setAppearace] = useState("");
   const [location, setLocation] = useState("");
   const [color, setColor] = useState("");
-  const [image, setImage] = useState();
+  const [images, setImages] = useState([]);
   const [note, setNote] = useState("");
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");

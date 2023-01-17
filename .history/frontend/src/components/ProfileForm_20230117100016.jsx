@@ -49,28 +49,30 @@ function ProfileForm(props) {
     setLongitude(lon);
   };
 
-  const [showMap, setShowMap] = useState(false);
+  const [show_map, setShowMap] = useState(false);
   const handleCloseMap = () => setShowMap(false);
   const handleShowMap = () => setShowMap(true);
 
-  const [showImage, setShowImage] = useState(false);
-  const handleShowImage = () => setShowImage(true);
-  const handleCloseImage = () => setShowImage(false);
 
-
-  const [images, setImages] = useState([]);
-  const [imageURL, setImageURL] = useState([]);
 
   useEffect(() => {
-    if (images.length < 1) return;
-    const newImageUrl = [];
-    images.forEach((image) => newImageUrl.push(URL.createObjectURL(image)));
-    setImageURL(newImageUrl);
-  }, [images]);
- 
-  function onImageChange(e) {
-    setImages([...e.target.files]);
-  }
+    setShowImage(true);
+  }, []);z
+
+  const changeHandler = (event) => {
+    if (event.target.files && event.target.files[0]) {
+      let reader = new FileReader();
+
+      reader.onload = function (event) {
+        setImage(event.target.result);
+        setIsUpload(true);
+      };
+
+      reader.readAsDataURL(event.target.files[0]);
+      setImage(event.target.files[0]);
+    }
+    // setImage(event.target.files[0]);
+  };
 
 
   const createProfile = async (e) => {
@@ -138,7 +140,7 @@ function ProfileForm(props) {
             </Button>
           </div>
           <Modal
-            show={showMap}
+            show={show_map}
             onHide={handleCloseMap}
             backdrop="static"
             keyboard={false}
@@ -188,61 +190,13 @@ function ProfileForm(props) {
         <br />
         {/* Upload Image */}
         <Form.Group controlId="Image" className="mb-3">
-        <div>
-            <Button
-              onClick={handleShowMap}
-              className="text-black bg-blue-300 p-3 w-[100%]"
-            >
-              เลือกตำแหน่งในแผนที่
-            </Button>
-          </div>
-          <Modal
-            show={showMap}
-            onHide={handleCloseMap}
-            backdrop="static"
-            keyboard={false}
-            fullscreen={true}
-          >
-            <Modal.Header closeButton>
-              <Modal.Title>เลือกตำแหน่งสถานที่ที่น้องหมาชอบอยู่</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <Maps
-                handleCloseMap={handleCloseMap}
-                handleGetLatLon={handleGetLatLon}
-              />
-            </Modal.Body>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={handleCloseMap}>
-                Close
-              </Button>
-              <Button variant="success" onClick={handleCloseMap}>
-                OK
-              </Button>
-            </Modal.Footer>
-          </Modal>
-          {/* <Form.Label>อัปโหลดภาพน้องหมา</Form.Label>
+          <Form.Label>อัปโหลดภาพน้องหมา</Form.Label>
           <Form.Control
             type="file"
-            onChange={onImageChange}
+            onChange={changeHandler}
             required
-          /> <br />
-          {images.length > 0 ? ((imageURL.map((imageSrc, idx) => (
-          <Modal centered show={handleShowImage} onHide={handleCloseImage}>
-        <Modal.Header closeButton>
-          <Modal.Title>ภาพน้องหมา</Modal.Title>
-        </Modal.Header>
-        <Modal.Body><img key={idx} src={imageSrc} alt=""/></Modal.Body>
-        <Modal.Footer>
-          
-          <Button variant="primary" onClick={handleCloseImage}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
-      </Modal>
-        // <img key={idx}  height="360" src={imageSrc} />
-      )))) : (<p>ไม่พบรูปภาพ</p>)} */}
-          {/* {isUpload ? (<Modal centered show={showImage} onHide={handleCloseImage}>
+          /> <br />{" "}
+          {isUpload ? (<Modal centered show={showImage} onHide={handleCloseImage}>
         <Modal.Header closeButton>
           <Modal.Title>ภาพน้องหมา</Modal.Title>
         </Modal.Header>
@@ -253,7 +207,7 @@ function ProfileForm(props) {
             Save Changes
           </Button>
         </Modal.Footer>
-      </Modal>) : (<p>ยังไม่ได้อัปโหลดรูปภาพ</p>)} */}
+      </Modal>) : (<p>ยังไม่ได้อัปโหลดรูปภาพ</p>)}
         </Form.Group>
         {/* Name */}
         <Form.Group className="relative">

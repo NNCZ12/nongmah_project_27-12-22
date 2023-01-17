@@ -27,7 +27,7 @@ function ProfileForm(props) {
   const [appearance, setAppearace] = useState("");
   const [location, setLocation] = useState("");
   const [color, setColor] = useState("");
-  const [image, setImage] = useState();
+
   const [note, setNote] = useState("");
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
@@ -49,13 +49,14 @@ function ProfileForm(props) {
     setLongitude(lon);
   };
 
-  const [showMap, setShowMap] = useState(false);
+  const [show_map, setShowMap] = useState(false);
   const handleCloseMap = () => setShowMap(false);
   const handleShowMap = () => setShowMap(true);
 
   const [showImage, setShowImage] = useState(false);
   const handleShowImage = () => setShowImage(true);
-  const handleCloseImage = () => setShowImage(false);
+
+
 
 
   const [images, setImages] = useState([]);
@@ -138,7 +139,7 @@ function ProfileForm(props) {
             </Button>
           </div>
           <Modal
-            show={showMap}
+            show={show_map}
             onHide={handleCloseMap}
             backdrop="static"
             keyboard={false}
@@ -188,40 +189,7 @@ function ProfileForm(props) {
         <br />
         {/* Upload Image */}
         <Form.Group controlId="Image" className="mb-3">
-        <div>
-            <Button
-              onClick={handleShowMap}
-              className="text-black bg-blue-300 p-3 w-[100%]"
-            >
-              เลือกตำแหน่งในแผนที่
-            </Button>
-          </div>
-          <Modal
-            show={showMap}
-            onHide={handleCloseMap}
-            backdrop="static"
-            keyboard={false}
-            fullscreen={true}
-          >
-            <Modal.Header closeButton>
-              <Modal.Title>เลือกตำแหน่งสถานที่ที่น้องหมาชอบอยู่</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <Maps
-                handleCloseMap={handleCloseMap}
-                handleGetLatLon={handleGetLatLon}
-              />
-            </Modal.Body>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={handleCloseMap}>
-                Close
-              </Button>
-              <Button variant="success" onClick={handleCloseMap}>
-                OK
-              </Button>
-            </Modal.Footer>
-          </Modal>
-          {/* <Form.Label>อัปโหลดภาพน้องหมา</Form.Label>
+          <Form.Label>อัปโหลดภาพน้องหมา</Form.Label>
           <Form.Control
             type="file"
             onChange={onImageChange}
@@ -241,7 +209,7 @@ function ProfileForm(props) {
         </Modal.Footer>
       </Modal>
         // <img key={idx}  height="360" src={imageSrc} />
-      )))) : (<p>ไม่พบรูปภาพ</p>)} */}
+      )))) : (<p>ไม่พบรูปภาพ</p>)}
           {/* {isUpload ? (<Modal centered show={showImage} onHide={handleCloseImage}>
         <Modal.Header closeButton>
           <Modal.Title>ภาพน้องหมา</Modal.Title>
