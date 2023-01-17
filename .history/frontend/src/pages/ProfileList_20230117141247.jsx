@@ -81,7 +81,7 @@ function ProfileList() {
             profiles.map((row, key) => (
               <Col key={key}>
                 <img
-                  width="800"
+                  width="640"
                   src={`http://localhost:8000/storage/dog_profiles/image/${row.image}`}
                   alt=""
                 />

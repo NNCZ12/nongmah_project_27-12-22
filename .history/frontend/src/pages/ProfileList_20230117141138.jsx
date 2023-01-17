@@ -17,6 +17,7 @@ function ProfileList() {
 
   const [profiles, setProfiles] = useState([]);
 
+
   useEffect(() => {
     fetchProfiles();
   }, []);
@@ -75,22 +76,20 @@ function ProfileList() {
         </Modal>
       </div>
       {/* Dog List */}{" "}
-      <Container>
-        <Row>
-          {profiles.length > 0 ? (
-            profiles.map((row, key) => (
-              <Col key={key}>
-                <img
-                  width="800"
-                  src={`http://localhost:8000/storage/dog_profiles/image/${row.image}`}
-                  alt=""
-                />
-              </Col>
-            ))
-          ) : (
-            <Row>No profiles found</Row>
-          )}
-        </Row>
+      <Row  >        {profiles.length > 0 ? (
+          profiles.map((row, key) => (
+            <Row  >
+              <Col key={key}><img
+                width="30%"
+                src={`http://localhost:8000/storage/dog_profiles/image/${row.image}`}
+                alt=""
+              /></Col>
+              
+            </Row>
+          ))
+        ) : (
+          <Row>No profiles found</Row>
+        )}
       </Container>
       {/* <table className="table table-bordered mb-0 text-center">
         <thead>
