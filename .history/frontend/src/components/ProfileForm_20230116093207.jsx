@@ -56,10 +56,7 @@ function ProfileForm(props) {
 
   const [showImage, setShowImage] = useState(false);
   const handleCloseImage = () => setShowImage(false);
-
-  useEffect(() => {
-    setShowImage(true);
-  }, []);
+  const handleShowImage = () => setShowImage(true);
 
   const changeHandler = (event) => {
     if (event.target.files && event.target.files[0]) {
@@ -204,7 +201,7 @@ function ProfileForm(props) {
         <Modal.Body><img src={image} alt=""/></Modal.Body>
         <Modal.Footer>
           
-          <Button variant="primary" onClick={handleCloseImage}>
+          <Button variant="primary" onClick={() => setShowImage(true)}>
             Save Changes
           </Button>
         </Modal.Footer>

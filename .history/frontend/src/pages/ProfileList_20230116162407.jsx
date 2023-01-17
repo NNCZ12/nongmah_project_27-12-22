@@ -17,7 +17,6 @@ function ProfileList() {
 
   const [profiles, setProfiles] = useState([]);
 
-
   useEffect(() => {
     fetchProfiles();
   }, []);
@@ -90,7 +89,7 @@ function ProfileList() {
           ))
         ) : (
           <Row>No profiles found</Row>
-        )}
+        )console.log(first;)}
       </Container>
       {/* <table className="table table-bordered mb-0 text-center">
         <thead>

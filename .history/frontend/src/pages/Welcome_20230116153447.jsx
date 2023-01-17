@@ -20,9 +20,7 @@ function Welcome() {
         </Row>
         <Row className="h-20"></Row>
         {/* <Row> <button className='w-72 mx-auto bg-yellow-600'>Login with Google</button></Row> */}
-        <Row>
-          <div className="text-center mx-auto"> Tap Anywhere to Continue</div>
-        </Row>
+        <Row > Tap Anywhere to Continue</Row>
       </Col>
     </div>
   );

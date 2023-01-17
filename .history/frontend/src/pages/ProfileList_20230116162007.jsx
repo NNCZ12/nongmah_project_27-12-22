@@ -17,7 +17,6 @@ function ProfileList() {
 
   const [profiles, setProfiles] = useState([]);
 
-
   useEffect(() => {
     fetchProfiles();
   }, []);

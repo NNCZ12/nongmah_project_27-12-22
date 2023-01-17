@@ -16,8 +16,7 @@ function ProfileList() {
   const handleShowForm = () => setShowForm(true);
 
   const [profiles, setProfiles] = useState([]);
-
-
+  const teatmap = 
   useEffect(() => {
     fetchProfiles();
   }, []);

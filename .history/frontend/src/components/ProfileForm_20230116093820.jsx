@@ -56,10 +56,7 @@ function ProfileForm(props) {
 
   const [showImage, setShowImage] = useState(false);
   const handleCloseImage = () => setShowImage(false);
-
-  useEffect(() => {
-    setShowImage(true);
-  }, []);
+  const handleShowImage = () => setShowImage(true);
 
   const changeHandler = (event) => {
     if (event.target.files && event.target.files[0]) {

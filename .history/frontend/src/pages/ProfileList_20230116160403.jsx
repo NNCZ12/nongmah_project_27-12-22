@@ -17,7 +17,6 @@ function ProfileList() {
 
   const [profiles, setProfiles] = useState([]);
 
-
   useEffect(() => {
     fetchProfiles();
   }, []);
@@ -29,7 +28,7 @@ function ProfileList() {
         setProfiles(data);
       });
   };
-  console.log(profiles);
+console.log(profile)
   return (
     <>
       {/* Gradient Container */}
@@ -78,13 +77,14 @@ function ProfileList() {
       {/* Dog List */}{" "}
       <Container>
         {profiles.length > 0 ? (
-          profiles.map((profile, key) => (
-            <Row key={key} >
-              <Col><img
-                width="30%"
-                src={`http://localhost:8000/storage/dog_profiles/image/${profile.image}`}
-                alt=""
-              /></Col>
+          profiles.map((col, key) => (
+            <Row key={key} className="grid gap-4 grid-cols-2">
+              
+              <img
+                  width="30%"
+                  src={`http://localhost:8000/storage/dog_profiles/image/${col.image}`}
+                  alt=""
+                />
               
             </Row>
           ))

@@ -55,7 +55,7 @@ function ProfileForm(props) {
   const handleShowMap = () => setShowMap(true);
 
   const [showImage, setShowImage] = useState(false);
-  const handleCloseImage = () => setShowImage(false);
+  const handleCloseImage = () => setShowModal(false);
 
   useEffect(() => {
     setShowImage(true);

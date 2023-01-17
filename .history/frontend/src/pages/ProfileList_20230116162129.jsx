@@ -17,7 +17,6 @@ function ProfileList() {
 
   const [profiles, setProfiles] = useState([]);
 
-
   useEffect(() => {
     fetchProfiles();
   }, []);
@@ -82,7 +81,7 @@ function ProfileList() {
             <Row key={key} >
               <Col><img
                 width="30%"
-                src={`http://localhost:8000/storage/dog_profiles/image/${profile.image}`}
+                src={`http://localhost:8000/storage/dog_profiles/image/${row.image}`}
                 alt=""
               /></Col>
               

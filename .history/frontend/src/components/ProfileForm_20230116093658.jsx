@@ -56,10 +56,7 @@ function ProfileForm(props) {
 
   const [showImage, setShowImage] = useState(false);
   const handleCloseImage = () => setShowImage(false);
-
-  useEffect(() => {
-    setShowImage(true);
-  }, []);
+  const handleShowImage = () => setShowImage(true);
 
   const changeHandler = (event) => {
     if (event.target.files && event.target.files[0]) {
@@ -197,7 +194,7 @@ function ProfileForm(props) {
             onChange={changeHandler}
             required
           /> <br />{" "}
-          {isUpload ? (<Modal centered show={showImage} onHide={handleCloseImage}>
+          {isUpload ? (onChange={} && <Modal centered show={showImage} onHide={handleCloseImage}>
         <Modal.Header closeButton>
           <Modal.Title>ภาพน้องหมา</Modal.Title>
         </Modal.Header>

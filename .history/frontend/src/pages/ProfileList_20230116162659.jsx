@@ -16,8 +16,8 @@ function ProfileList() {
   const handleShowForm = () => setShowForm(true);
 
   const [profiles, setProfiles] = useState([]);
-
-
+  const testmap = profiles.map(profiles,id);
+  console.log(testmap);
   useEffect(() => {
     fetchProfiles();
   }, []);

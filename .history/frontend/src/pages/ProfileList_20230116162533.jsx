@@ -16,8 +16,7 @@ function ProfileList() {
   const handleShowForm = () => setShowForm(true);
 
   const [profiles, setProfiles] = useState([]);
-
-
+  co
   useEffect(() => {
     fetchProfiles();
   }, []);

@@ -17,7 +17,6 @@ function ProfileList() {
 
   const [profiles, setProfiles] = useState([]);
 
-
   useEffect(() => {
     fetchProfiles();
   }, []);
@@ -78,7 +77,7 @@ function ProfileList() {
       {/* Dog List */}{" "}
       <Container>
         {profiles.length > 0 ? (
-          profiles.map((profile, key) => (
+          profiles.map((profile, key) => (console.log(k)
             <Row key={key} >
               <Col><img
                 width="30%"

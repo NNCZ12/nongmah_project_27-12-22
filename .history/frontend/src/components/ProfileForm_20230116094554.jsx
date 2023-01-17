@@ -55,7 +55,7 @@ function ProfileForm(props) {
   const handleShowMap = () => setShowMap(true);
 
   const [showImage, setShowImage] = useState(false);
-  const handleCloseImage = () => setShowImage(false);
+  const handleClose = () => setShowModal(false);
 
   useEffect(() => {
     setShowImage(true);
@@ -204,7 +204,9 @@ function ProfileForm(props) {
         <Modal.Body><img src={image} alt=""/></Modal.Body>
         <Modal.Footer>
           
-          <Button variant="primary" onClick={handleCloseImage}>
+          <Button variant="primary" onClick={() => {
+            setShowImage(false)
+          }}>
             Save Changes
           </Button>
         </Modal.Footer>
