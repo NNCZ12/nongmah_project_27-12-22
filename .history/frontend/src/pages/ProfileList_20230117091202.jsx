@@ -82,7 +82,7 @@ function ProfileList() {
             <Row key={key} >
               <Col><img
                 width="30%"
-                src={`http://localhost:8000/storage/dog_profiles/image/${row.image}`}
+                src={`http://localhost:8000/storage/dog_profiles/image/${profile.image}`}
                 alt=""
               /></Col>
               

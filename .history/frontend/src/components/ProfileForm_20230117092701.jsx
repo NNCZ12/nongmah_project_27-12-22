@@ -71,7 +71,7 @@ function ProfileForm(props) {
       };
 
       reader.readAsDataURL(event.target.files[0]);
-      setImage(event.target.files[0]);
+      
     }
     // setImage(event.target.files[0]);
   };

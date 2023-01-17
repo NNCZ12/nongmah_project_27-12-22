@@ -66,12 +66,11 @@ function ProfileForm(props) {
       let reader = new FileReader();
 
       reader.onload = function (event) {
-        setImage(event.target.result);
+        setImage(event.target.files[0]);
         setIsUpload(true);
       };
 
       reader.readAsDataURL(event.target.files[0]);
-      setImage(event.target.files[0]);
     }
     // setImage(event.target.files[0]);
   };

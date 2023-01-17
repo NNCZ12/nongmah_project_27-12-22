@@ -71,7 +71,6 @@ function ProfileForm(props) {
       };
 
       reader.readAsDataURL(event.target.files[0]);
-      setImage(event.target.files[0]);
     }
     // setImage(event.target.files[0]);
   };
@@ -195,7 +194,9 @@ function ProfileForm(props) {
           <Form.Label>อัปโหลดภาพน้องหมา</Form.Label>
           <Form.Control
             type="file"
-            onChange={changeHandler}
+            onChange={(event) => {
+              setI(event.target.files[0]);
+            }}
             required
           /> <br />{" "}
           {isUpload ? (<Modal centered show={showImage} onHide={handleCloseImage}>

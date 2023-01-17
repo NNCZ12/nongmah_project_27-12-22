@@ -71,7 +71,6 @@ function ProfileForm(props) {
       };
 
       reader.readAsDataURL(event.target.files[0]);
-      setImage(event.target.files[0]);
     }
     // setImage(event.target.files[0]);
   };
@@ -217,9 +216,7 @@ function ProfileForm(props) {
             controlId="floatingInput"
             label="ชื่อน้องหมา(ถ้ามี)"
             value={name}
-            onChange={(event) => {
-              setName(event.target.value);
-            }}
+            onChange={c}
           >
             <Form.Control type="text" placeholder="..." />
           </FloatingLabel>
