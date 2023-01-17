@@ -3,31 +3,19 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { Container, Form, Row, Col } from "react-bootstrap";
 import ProfileForm from "../components/ProfileForm";
-import ViewProfile from '../components/ViewProfile';
 import axios from "axios";
 import Swal from "sweetalert2";
 
 function ProfileList() {
+  const [show_map, setShowMap] = useState(false);
+  const handleCloseMap = () => setShowMap(false);
+  const handleShowMap = () => setShowMap(true);
 
   const [show_form, setShowForm] = useState(false);
   const handleCloseForm = () => setShowForm(false);
   const handleShowForm = () => setShowForm(true);
 
-  const [showProfile, setShowProfile] = useState(false);
-  const handleCloseProfile = () => setShowProfile(false);
-  const handleShowProfile = () => setShowProfile(true);
-
-  const [clickedImg, setClickedImg] = useState(null);
-  const [currentIndex, setCurrentIndex] = useState(null);
-
-  const handleClick = (item, index) => {
-    setCurrentIndex(index);
-    setClickedImg(item.image);}
-  
-  
   const [profiles, setProfiles] = useState([]);
-
-  const API_URL = `http://localhost:8000/api/dog_profiles`;
 
   useEffect(() => {
     fetchProfiles();
@@ -35,12 +23,12 @@ function ProfileList() {
 
   const fetchProfiles = async () => {
     await axios
-      .get(API_URL)
+      .get(`http://localhost:8000/api/dog_profiles`)
       .then(({ data }) => {
         setProfiles(data);
       });
   };
-
+  console.log(profiles)
   return (
     <>
       {/* Gradient Container */}
@@ -57,7 +45,10 @@ function ProfileList() {
           background: "linear-gradient(to bottom, #4d79ff, #00b0ff)",
         }}
       >
-        
+        {/* Map Modal */}
+        <Button variant="primary" onClick={handleShowMap}>
+          Choose Location
+        </Button>
       </Container>
       {/* Upload Button */}
       <div>
@@ -85,44 +76,52 @@ function ProfileList() {
       </div>
       {/* Dog List */}{" "}
       <Container>
-        <div>
+        <Row>
           {profiles.length > 0 ? (
-            profiles.map((item, index) => (
-              <div key={index} className="inline-flex p-3">
+            profiles.map((row, key) => (
+              <Col key={key}>
                 <img
-                  width="200"
-                  src={`http://localhost:8000/storage/dog_profiles/image/${item.image}`}
-                  alt="" onClick={handleShowProfile}
+                  width="800"
+                  src={`http://localhost:8000/storage/dog_profiles/image/${row.image}`}
+                  alt=""
                 />
-              </div> 
-            )) 
+              </Col>
+            ))
           ) : (
             <Row>No profiles found</Row>
-          )} 
-          <Modal
-            show={showProfile}
-            onHide={handleCloseProfile}
-            backdrop="static"
-            keyboard={false}
-            fullscreen={true}
-          >
-            <Modal.Header closeButton>
-              <Modal.Title>ข้อมูลน้องหมา</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <ViewProfile sentProfile={profiles} />
-            </Modal.Body>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={handleCloseProfile}>
-                Close
-              </Button>
-              <Button variant="success" onClick={handleCloseProfile}>
-                OK
-              </Button>
-            </Modal.Footer>
-          </Modal>
-        </div>
+          )}
+        </Row>
       </Container>
+      {/* <table className="table table-bordered mb-0 text-center">
+        <thead>
+          <tr>
+            <td>Title</td>
+            <td>Description</td>
+            <td>Image</td>
+          </tr>
+        </thead>
+        <tbody>
+          {profiles.length > 0 ? (
+            profiles.map((row, key) => (
+              <tr key={key}>
+                <td>{row.name}</td>
+                <td>{row.vaccination}</td>
+                <td>
+                  <img
+                    width="50px"
+                    src={`http://localhost:8000/storage/dog_profiles/image/${row.image}`}
+                    alt=""
+                  />
+                </td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td colSpan="4">No profiles found</td>
+            </tr>
+          )}
+        </tbody>
+      </table> */}
     </>
   );
 }

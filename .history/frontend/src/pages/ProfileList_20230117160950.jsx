@@ -99,28 +99,6 @@ function ProfileList() {
           ) : (
             <Row>No profiles found</Row>
           )} 
-          <Modal
-            show={showProfile}
-            onHide={handleCloseProfile}
-            backdrop="static"
-            keyboard={false}
-            fullscreen={true}
-          >
-            <Modal.Header closeButton>
-              <Modal.Title>ข้อมูลน้องหมา</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <ViewProfile sentProfile={profiles} />
-            </Modal.Body>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={handleCloseProfile}>
-                Close
-              </Button>
-              <Button variant="success" onClick={handleCloseProfile}>
-                OK
-              </Button>
-            </Modal.Footer>
-          </Modal>
         </div>
       </Container>
     </>

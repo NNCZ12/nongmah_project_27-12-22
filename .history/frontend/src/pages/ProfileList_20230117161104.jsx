@@ -100,23 +100,23 @@ function ProfileList() {
             <Row>No profiles found</Row>
           )} 
           <Modal
-            show={showProfile}
-            onHide={handleCloseProfile}
+            show={showMap}
+            onHide={handleCloseMap}
             backdrop="static"
             keyboard={false}
             fullscreen={true}
           >
             <Modal.Header closeButton>
-              <Modal.Title>ข้อมูลน้องหมา</Modal.Title>
+              <Modal.Title>ข้อมูล</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <ViewProfile sentProfile={profiles} />
+              <Maps handleGetLatLon={handleGetLatLon} />
             </Modal.Body>
             <Modal.Footer>
-              <Button variant="secondary" onClick={handleCloseProfile}>
+              <Button variant="secondary" onClick={handleCloseMap}>
                 Close
               </Button>
-              <Button variant="success" onClick={handleCloseProfile}>
+              <Button variant="success" onClick={handleCloseMap}>
                 OK
               </Button>
             </Modal.Footer>

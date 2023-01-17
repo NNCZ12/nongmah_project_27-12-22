@@ -13,10 +13,6 @@ function ProfileList() {
   const handleCloseForm = () => setShowForm(false);
   const handleShowForm = () => setShowForm(true);
 
-  const [showProfile, setShowProfile] = useState(false);
-  const handleCloseProfile = () => setShowProfile(false);
-  const handleShowProfile = () => setShowProfile(true);
-
   const [clickedImg, setClickedImg] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(null);
 
@@ -28,7 +24,7 @@ function ProfileList() {
   const [profiles, setProfiles] = useState([]);
 
   const API_URL = `http://localhost:8000/api/dog_profiles`;
-
+  
   useEffect(() => {
     fetchProfiles();
   }, []);
@@ -88,39 +84,17 @@ function ProfileList() {
         <div>
           {profiles.length > 0 ? (
             profiles.map((item, index) => (
-              <div key={index} className="inline-flex p-3">
+              <div key={index} className="wrapper-images">
                 <img
-                  width="200"
+                  width="800"
                   src={`http://localhost:8000/storage/dog_profiles/image/${item.image}`}
-                  alt="" onClick={handleShowProfile}
+                  alt="" onClick={()=> handleClick(item,index)}
                 />
               </div> 
             )) 
           ) : (
             <Row>No profiles found</Row>
-          )} 
-          <Modal
-            show={showProfile}
-            onHide={handleCloseProfile}
-            backdrop="static"
-            keyboard={false}
-            fullscreen={true}
-          >
-            <Modal.Header closeButton>
-              <Modal.Title>ข้อมูลน้องหมา</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <ViewProfile sentProfile={profiles} />
-            </Modal.Body>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={handleCloseProfile}>
-                Close
-              </Button>
-              <Button variant="success" onClick={handleCloseProfile}>
-                OK
-              </Button>
-            </Modal.Footer>
-          </Modal>
+          )} {clickedImg && <ViewProfile clickedImg={clickedImg} setClickedImg={setClickedImg}></ViewProfile>}
         </div>
       </Container>
     </>

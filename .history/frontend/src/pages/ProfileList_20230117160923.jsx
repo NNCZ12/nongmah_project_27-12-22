@@ -13,9 +13,9 @@ function ProfileList() {
   const handleCloseForm = () => setShowForm(false);
   const handleShowForm = () => setShowForm(true);
 
-  const [showProfile, setShowProfile] = useState(false);
-  const handleCloseProfile = () => setShowProfile(false);
-  const handleShowProfile = () => setShowProfile(true);
+  const [showPro, setShowForm] = useState(false);
+  const handleCloseForm = () => setShowForm(false);
+  const handleShowForm = () => setShowForm(true);
 
   const [clickedImg, setClickedImg] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(null);
@@ -99,28 +99,6 @@ function ProfileList() {
           ) : (
             <Row>No profiles found</Row>
           )} 
-          <Modal
-            show={showProfile}
-            onHide={handleCloseProfile}
-            backdrop="static"
-            keyboard={false}
-            fullscreen={true}
-          >
-            <Modal.Header closeButton>
-              <Modal.Title>ข้อมูลน้องหมา</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <ViewProfile sentProfile={profiles} />
-            </Modal.Body>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={handleCloseProfile}>
-                Close
-              </Button>
-              <Button variant="success" onClick={handleCloseProfile}>
-                OK
-              </Button>
-            </Modal.Footer>
-          </Modal>
         </div>
       </Container>
     </>

@@ -110,7 +110,7 @@ function ProfileList() {
               <Modal.Title>ข้อมูลน้องหมา</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <ViewProfile sentProfile={profiles} />
+              <ViewProfile handleGetProfile={handleGet} />
             </Modal.Body>
             <Modal.Footer>
               <Button variant="secondary" onClick={handleCloseProfile}>

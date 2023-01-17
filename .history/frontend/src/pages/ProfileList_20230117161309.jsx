@@ -100,8 +100,8 @@ function ProfileList() {
             <Row>No profiles found</Row>
           )} 
           <Modal
-            show={showProfile}
-            onHide={handleCloseProfile}
+            show={sh}
+            onHide={handleCloseMap}
             backdrop="static"
             keyboard={false}
             fullscreen={true}
@@ -110,7 +110,7 @@ function ProfileList() {
               <Modal.Title>ข้อมูลน้องหมา</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <ViewProfile sentProfile={profiles} />
+              <ViewProfile />
             </Modal.Body>
             <Modal.Footer>
               <Button variant="secondary" onClick={handleCloseProfile}>
