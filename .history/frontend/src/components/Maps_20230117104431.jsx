@@ -8,8 +8,8 @@ import {
 } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import image from "../assets/marker.png";
-
-
+import ProfileForm from "./ProfileForm";
+import { Form, FloatingLabel, Button, Modal } from "react-bootstrap";
 
 function Maps( {handleGetLatLon}) {
   let markerIcon = L.icon({

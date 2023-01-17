@@ -13,7 +13,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
 import Maps from "./Maps";
-import ChooseImage from "./ChooseImage";
+
 
 function ProfileForm(props) {
   const navigate = useNavigate();
@@ -57,6 +57,22 @@ function ProfileForm(props) {
   const handleShowImage = () => setShowImage(true);
   const handleCloseImage = () => setShowImage(false);
 
+
+  const [images, setImages] = useState([]);
+  const [imageURL, setImageURL] = useState([]);
+
+  useEffect(() => {
+    if (images.length < 1) return;
+    const newImageUrl = [];
+    images.forEach((image) => newImageUrl.push(URL.createObjectURL(image)));
+    setImageURL(newImageUrl);
+  }, [images]);
+ 
+  function onImageChange(e) {
+    setImages([...e.target.files]);
+  }
+
+
   const createProfile = async (e) => {
     e.preventDefault();
 
@@ -98,6 +114,7 @@ function ProfileForm(props) {
         }
       });
   };
+
 
   return (
     // Dog Profile Form
@@ -171,41 +188,72 @@ function ProfileForm(props) {
         <br />
         {/* Upload Image */}
         <Form.Group controlId="Image" className="mb-3">
-          <div>
+        <div>
             <Button
-              onClick={handleShowImage}
+              onClick={hand}
               className="text-black bg-blue-300 p-3 w-[100%]"
             >
-              อัปโหลดภาพน้องหมา
+              เลือกตำแหน่งในแผนที่
             </Button>
           </div>
           <Modal
-            show={showImage}
-            onHide={handleCloseImage}
+            show={showMap}
+            onHide={handleCloseMap}
             backdrop="static"
             keyboard={false}
-            fullscreen={false}
-            centered
+            fullscreen={true}
           >
-            <Modal.Header>
-              <Modal.Title>อัปโหลดรูปภาพน้องหมา</Modal.Title>
+            <Modal.Header closeButton>
+              <Modal.Title>เลือกตำแหน่งสถานที่ที่น้องหมาชอบอยู่</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <ChooseImage
-              // handleCloseMap={handleCloseMap}
-              // handleGetLatLon={handleGetLatLon}
+              <Maps
+                handleCloseMap={handleCloseMap}
+                handleGetLatLon={handleGetLatLon}
               />
             </Modal.Body>
             <Modal.Footer>
-              <Button variant="secondary" onClick={handleCloseImage}>
+              <Button variant="secondary" onClick={handleCloseMap}>
                 Close
               </Button>
-              <Button variant="success" onClick={handleCloseImage}>
+              <Button variant="success" onClick={handleCloseMap}>
                 OK
               </Button>
             </Modal.Footer>
           </Modal>
+          {/* <Form.Label>อัปโหลดภาพน้องหมา</Form.Label>
+          <Form.Control
+            type="file"
+            onChange={onImageChange}
+            required
+          /> <br />
+          {images.length > 0 ? ((imageURL.map((imageSrc, idx) => (
+          <Modal centered show={handleShowImage} onHide={handleCloseImage}>
+        <Modal.Header closeButton>
+          <Modal.Title>ภาพน้องหมา</Modal.Title>
+        </Modal.Header>
+        <Modal.Body><img key={idx} src={imageSrc} alt=""/></Modal.Body>
+        <Modal.Footer>
           
+          <Button variant="primary" onClick={handleCloseImage}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
+        // <img key={idx}  height="360" src={imageSrc} />
+      )))) : (<p>ไม่พบรูปภาพ</p>)} */}
+          {/* {isUpload ? (<Modal centered show={showImage} onHide={handleCloseImage}>
+        <Modal.Header closeButton>
+          <Modal.Title>ภาพน้องหมา</Modal.Title>
+        </Modal.Header>
+        <Modal.Body><img src={image} alt=""/></Modal.Body>
+        <Modal.Footer>
+          
+          <Button variant="primary" onClick={handleCloseImage}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>) : (<p>ยังไม่ได้อัปโหลดรูปภาพ</p>)} */}
         </Form.Group>
         {/* Name */}
         <Form.Group className="relative">

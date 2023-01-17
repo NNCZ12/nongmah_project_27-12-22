@@ -197,15 +197,47 @@ function ProfileForm(props) {
               />
             </Modal.Body>
             <Modal.Footer>
-              <Button variant="secondary" onClick={handleCloseImage}>
+              <Button variant="secondary" onClick={handleCloseMap}>
                 Close
               </Button>
-              <Button variant="success" onClick={handleCloseImage}>
+              <Button variant="success" onClick={handleCloseMap}>
                 OK
               </Button>
             </Modal.Footer>
           </Modal>
+          {/* <Form.Label>อัปโหลดภาพน้องหมา</Form.Label>
+          <Form.Control
+            type="file"
+            onChange={onImageChange}
+            required
+          /> <br />
+          {images.length > 0 ? ((imageURL.map((imageSrc, idx) => (
+          <Modal centered show={handleShowImage} onHide={handleCloseImage}>
+        <Modal.Header closeButton>
+          <Modal.Title>ภาพน้องหมา</Modal.Title>
+        </Modal.Header>
+        <Modal.Body><img key={idx} src={imageSrc} alt=""/></Modal.Body>
+        <Modal.Footer>
           
+          <Button variant="primary" onClick={handleCloseImage}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
+        // <img key={idx}  height="360" src={imageSrc} />
+      )))) : (<p>ไม่พบรูปภาพ</p>)} */}
+          {/* {isUpload ? (<Modal centered show={showImage} onHide={handleCloseImage}>
+        <Modal.Header closeButton>
+          <Modal.Title>ภาพน้องหมา</Modal.Title>
+        </Modal.Header>
+        <Modal.Body><img src={image} alt=""/></Modal.Body>
+        <Modal.Footer>
+          
+          <Button variant="primary" onClick={handleCloseImage}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>) : (<p>ยังไม่ได้อัปโหลดรูปภาพ</p>)} */}
         </Form.Group>
         {/* Name */}
         <Form.Group className="relative">

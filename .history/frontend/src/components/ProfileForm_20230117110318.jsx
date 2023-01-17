@@ -197,10 +197,10 @@ function ProfileForm(props) {
               />
             </Modal.Body>
             <Modal.Footer>
-              <Button variant="secondary" onClick={handleCloseImage}>
+              <Button variant="secondary" onClick={hand}>
                 Close
               </Button>
-              <Button variant="success" onClick={handleCloseImage}>
+              <Button variant="success" onClick={handleCloseMap}>
                 OK
               </Button>
             </Modal.Footer>

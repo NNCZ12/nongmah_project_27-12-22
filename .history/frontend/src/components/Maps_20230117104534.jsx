@@ -7,8 +7,7 @@ import {
   useMapEvents,
 } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import image from "../assets/marker.png";
-
+import image from "../assets/marker.png"
 
 
 function Maps( {handleGetLatLon}) {

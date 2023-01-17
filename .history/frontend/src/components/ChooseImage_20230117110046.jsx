@@ -19,7 +19,7 @@ function ChooseImage() {
     <div>
       <div>
         <Form.Control type="file" onChange={onImageChange} required />
-      </div> <br />
+      </div> 
       <div>
         {images.length > 0 ? (
           imageURL.map((imageSrc, idx) => (

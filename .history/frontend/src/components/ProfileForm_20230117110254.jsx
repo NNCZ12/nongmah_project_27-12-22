@@ -197,16 +197,16 @@ function ProfileForm(props) {
               />
             </Modal.Body>
             <Modal.Footer>
-              <Button variant="secondary" onClick={handleCloseImage}>
+              <Button variant="secondary" onClick={handleCloseMap}>
                 Close
               </Button>
-              <Button variant="success" onClick={handleCloseImage}>
+              <Button variant="success" onClick={handleCloseMap}>
                 OK
               </Button>
             </Modal.Footer>
           </Modal>
           
-        </Form.Group>
+          
         {/* Name */}
         <Form.Group className="relative">
           <FloatingLabel

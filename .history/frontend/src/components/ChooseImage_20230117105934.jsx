@@ -17,20 +17,15 @@ function ChooseImage() {
   }
   return (
     <div>
-      <div>
-        <Form.Control type="file" onChange={onImageChange} required />
-      </div> <br />
-      <div>
-        {images.length > 0 ? (
-          imageURL.map((imageSrc, idx) => (
-            <img key={idx} src={imageSrc} alt="" />
+      {images.length > 0 ? (
+        imageURL.map((imageSrc, idx) => (
+          <img key={idx} src={imageSrc} alt="" />
 
-            // <img key={idx}  height="360" src={imageSrc} />
-          ))
-        ) : (
-          <p>ไม่พบรูปภาพ</p>
-        )}
-      </div>
+          // <img key={idx}  height="360" src={imageSrc} />
+        ))
+      ) : (
+        <p>ไม่พบรูปภาพ</p>
+      )}
     </div>
   );
 }
