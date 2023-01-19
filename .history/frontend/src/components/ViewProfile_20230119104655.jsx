@@ -4,9 +4,9 @@ function ViewProfile(props) {
   const { profileData } = props;
 
   const vaccineText = () => {
-    if (profileData.vaccination === "received") {
+    if ((profileData.vaccination == "received")) {
       return "ได้รับแล้ว";
-    } else if (profileData.vaccination === "have_not_received") {
+    } else if ((profileData.vaccination = "have_not_received")) {
       return "ยังไม่ได้รับ";
     } else {
       return "ไม่ระบุ";
@@ -78,7 +78,12 @@ function ViewProfile(props) {
           </span>
           <span className=" text-black">{spotOnText()}</span>
         </li>
-
+        <li className="flex items-center p-2.5 rounded-lg shadow-sm bg-slate-200  ">
+          <span className="ml-4 col-5 text-black">
+            การรับยาหยดป้องกันปรสิต :
+          </span>
+          <span className=" text-black">{spotOnText()}</span>
+        </li>
         <li className="flex items-center p-2.5 rounded-lg shadow-sm bg-slate-200  ">
           <span className="ml-4 col-5 text-black">วันที่รับยาหยด :</span>
           <span className=" text-black">{profileData.spot_on_date}</span>

@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState} from "react";
 import {
   Form,
   FloatingLabel,
@@ -19,9 +19,7 @@ function ProfileForm(props) {
   const navigate = useNavigate();
   const [validationError, setValidationError] = useState({});
   const [vaccine, setVaccine] = useState("");
-
-  const [spotOn, setSpotOn] = useState("");
-
+  const [spot_on, setSpotOn] = useState("");
   const [neuter, setNeuter] = useState("");
   const [name, setName] = useState("");
   const [gender, setGender] = useState("");
@@ -34,7 +32,13 @@ function ProfileForm(props) {
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
 
-  const [selectVaccineDate, setSelectVaccineDate] = useState("0000-00-00 00:00:00.000");
+
+  const [selectVaccineDate, setSelectVaccineDate] = useState(
+    new Date(-(new Date().getTimezoneOffset() * 60000))
+      .toISOString()
+      .replace("T", " ")
+      .replace("Z", " ")
+  );
   const [selectSpotOnDate, setSelectSpotOnDate] = useState(
     new Date(-(new Date().getTimezoneOffset() * 60000))
       .toISOString()
@@ -71,7 +75,7 @@ function ProfileForm(props) {
     formData.append("name", name);
     formData.append("vaccination", vaccine);
     formData.append("vaccine_date", selectVaccineDate);
-    formData.append("spot_on", spotOn);
+    formData.append("spot_on", spot_on);
     formData.append("spot_on_date", selectSpotOnDate);
     formData.append("neuter", neuter);
     formData.append("gender", gender);
@@ -105,6 +109,7 @@ function ProfileForm(props) {
       });
   };
 
+ 
   return (
     // Dog Profile Form
     <div className="form-wrapper">
@@ -245,19 +250,15 @@ function ProfileForm(props) {
             <DatePicker
               dateFormat="yyyy-MM-dd"
               // selected={selectVaccineDate}
-              value={selectVaccineDate || ""}
+              value={selectVaccineDate}
               onChange={(date) => {
-                if(date === null) {
-                  setSelectVaccineDate(null);
-                } else {
-                  const v_date = new Date(
-                    date - new Date().getTimezoneOffset() * 60000
-                  )
-                    .toISOString()
-                    .replace("T", " ")
-                    .replace("Z", " ");
-                  setSelectVaccineDate(v_date);
-                }
+                const vaccine_date = new Date(
+                  date - new Date().getTimezoneOffset() * 60000
+                )
+                  .toISOString()
+                  .replace("T", " ")
+                  .replace("Z", " ");
+                setSelectVaccineDate(vaccine_date);
               }}
               placeholderText="ระบุวันที่ฉีดวัคซีน"
               className="bg-white border text-black p-3 w-full rounded-md placeholder:text-gray-500"
@@ -270,7 +271,7 @@ function ProfileForm(props) {
           <Form.Select
             aria-label="Default select example"
             className="py-3"
-            value={spotOn}
+            value={spot_on}
             onChange={(e) => setSpotOn(e.target.value)}
             required
           >
@@ -282,7 +283,7 @@ function ProfileForm(props) {
         </Form.Group>
         <br />
         {/* Spot On Date  */}
-        {spotOn === "received" && (
+        {spot_on === "received" && (
           <Form.Group>
             <DatePicker
               dateFormat="yyyy-MM-dd"
@@ -290,13 +291,13 @@ function ProfileForm(props) {
               // selected={selectSpotOnDate}
 
               onChange={(date) => {
-                const s_date = new Date(
+                const spot_on_date = new Date(
                   date - new Date().getTimezoneOffset() * 60000
                 )
                   .toISOString()
                   .replace("T", " ")
                   .replace("Z", " ");
-                setSelectSpotOnDate(s_date);
+                setSelectSpotOnDate(spot_on_date);
               }}
               placeholderText="ระบุวันที่รับยาหยด"
               className="bg-white border text-black p-3 w-full rounded-md placeholder:text-gray-500"

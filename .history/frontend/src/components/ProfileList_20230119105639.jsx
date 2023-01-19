@@ -15,7 +15,7 @@ function ProfileList() {
   const [profileData, setProfileData] = useState({});
   const [profiles, setProfiles] = useState([]);
   const API_URL = `http://localhost:8000/api/dog_profiles`;
- 
+ //hom to make consr
   useEffect(() => {
     fetchProfiles();
   }, []);
@@ -28,7 +28,6 @@ function ProfileList() {
 
   return (
     <div>
-      {/* how to make div */}
       {/* Dog List */}{" "}
       <div className="mx-auto justify-content-center align-items-center p-3">
         {profiles.length > 0 ? (

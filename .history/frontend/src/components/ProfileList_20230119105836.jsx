@@ -28,7 +28,7 @@ function ProfileList() {
 
   return (
     <div>
-      {/* how to make div */}
+      {/* ho */}
       {/* Dog List */}{" "}
       <div className="mx-auto justify-content-center align-items-center p-3">
         {profiles.length > 0 ? (

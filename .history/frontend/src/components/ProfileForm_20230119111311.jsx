@@ -19,8 +19,9 @@ function ProfileForm(props) {
   const navigate = useNavigate();
   const [validationError, setValidationError] = useState({});
   const [vaccine, setVaccine] = useState("");
-
+  const [vaccineDate, setVaccineDate] = useState(null);
   const [spotOn, setSpotOn] = useState("");
+  const [spotOnDate, setSpotOnDate] = useState(null);
 
   const [neuter, setNeuter] = useState("");
   const [name, setName] = useState("");
@@ -34,13 +35,20 @@ function ProfileForm(props) {
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
 
-  const [selectVaccineDate, setSelectVaccineDate] = useState("0000-00-00 00:00:00.000");
+  const [selectVaccineDate, setSelectVaccineDate] = useState(
+    new Date(-(new Date().getTimezoneOffset() * 60000))
+      .toISOString()
+      .replace("T", " ")
+      .replace("Z", " ")
+  );
   const [selectSpotOnDate, setSelectSpotOnDate] = useState(
     new Date(-(new Date().getTimezoneOffset() * 60000))
       .toISOString()
       .replace("T", " ")
       .replace("Z", " ")
   );
+  const handleChangeVaccineDate = () => setVaccineDate(selectVaccineDate);
+  const handleChangeSpotOnDate = () => setSpotOnDate(selectVaccineDate);
 
   const handleGetLatLon = (lat, lon) => {
     setLatitude(lat);
@@ -245,19 +253,15 @@ function ProfileForm(props) {
             <DatePicker
               dateFormat="yyyy-MM-dd"
               // selected={selectVaccineDate}
-              value={selectVaccineDate || ""}
+              value={selectVaccineDate}
               onChange={(date) => {
-                if(date === null) {
-                  setSelectVaccineDate(null);
-                } else {
-                  const v_date = new Date(
-                    date - new Date().getTimezoneOffset() * 60000
-                  )
-                    .toISOString()
-                    .replace("T", " ")
-                    .replace("Z", " ");
-                  setSelectVaccineDate(v_date);
-                }
+                const v_date = new Date(
+                  date - new Date().getTimezoneOffset() * 60000
+                )
+                  .toISOString()
+                  .replace("T", " ")
+                  .replace("Z", " ");
+                setSelectVaccineDate(v_date);
               }}
               placeholderText="ระบุวันที่ฉีดวัคซีน"
               className="bg-white border text-black p-3 w-full rounded-md placeholder:text-gray-500"
