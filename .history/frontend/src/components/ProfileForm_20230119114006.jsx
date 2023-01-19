@@ -34,7 +34,7 @@ function ProfileForm(props) {
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
 
-  const [selectVaccineDate, setSelectVaccineDate] = useState("");
+  const [selectVaccineDate, setSelectVaccineDate] = useState("0000-00-00 00:00:00.000");
   const [selectSpotOnDate, setSelectSpotOnDate] = useState(
     new Date(-(new Date().getTimezoneOffset() * 60000))
       .toISOString()
@@ -248,7 +248,7 @@ function ProfileForm(props) {
               value={selectVaccineDate || ""}
               onChange={(date) => {
                 if(date === null) {
-                  setSelectVaccineDate("0000-00-00 00:00:00.000");
+                  setSelectVaccineDate("");
                 } else {
                   const v_date = new Date(
                     date - new Date().getTimezoneOffset() * 60000
