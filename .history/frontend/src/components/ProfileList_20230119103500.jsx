@@ -11,7 +11,7 @@ function ProfileList() {
   const handleCloseProfile = () => setShowProfile(false);
   const handleShowProfile = () => setShowProfile(true);
 
-
+  const [profiles, setProfiles] = useState([]);
   const [profileData, setProfileData] = useState({});
   const [profiles, setProfiles] = useState([]);
   const API_URL = `http://localhost:8000/api/dog_profiles`;
