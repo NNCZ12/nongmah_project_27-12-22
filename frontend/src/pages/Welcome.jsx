@@ -9,7 +9,7 @@ function Welcome() {
   return (
     <div
       className="flex items-center justify-center h-screen w-screen"
-      onClick={() => navigate("/profilelist")}
+      onClick={() => navigate("/main")}
     >
       <Col>
         <Row>

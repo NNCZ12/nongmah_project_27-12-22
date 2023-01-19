@@ -1,4 +1,4 @@
-import { React, useState, useEffect, useRef } from "react";
+import { React, useState} from "react";
 import {
   Form,
   FloatingLabel,
@@ -93,7 +93,7 @@ function ProfileForm(props) {
           icon: "success",
           text: data.message,
         });
-        navigate("/profilelist");
+        navigate("/main");
       })
       .catch(({ response }) => {
         if (response.status === 422) {
@@ -107,7 +107,7 @@ function ProfileForm(props) {
       });
   };
 
-  console.log(image);
+ 
   return (
     // Dog Profile Form
     <div className="form-wrapper">
