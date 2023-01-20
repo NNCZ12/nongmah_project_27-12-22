@@ -1,7 +1,5 @@
 import { React, useState, useEffect } from "react";
 import { Form } from "react-bootstrap";
-import axios from "axios";
-import Swal from "sweetalert2";
 
 function ChooseImage({ handleGetImage }) {
   const [images, setImages] = useState([]);
@@ -18,27 +16,6 @@ function ChooseImage({ handleGetImage }) {
     setImages([...e.target.files]);
     handleGetImage(e.target.files[0]);
   }
-
-  await axios
-      .post(`http://localhost:5000/image`, formData)
-      .then(({ data }) => {
-        Swal.fire({
-          icon: "success",
-          text: data.message,
-        });
-        navigate("/main");
-      })
-      .catch(({ response }) => {
-        if (response.status === 422) {
-          setValidationError(response.data.errors);
-        } else {
-          Swal.fire({
-            text: response.data.message,
-            icon: "error",
-          });
-        }
-      });
-  };
 
   return (
     <div>

@@ -61,6 +61,7 @@ function ProfileForm(props) {
   const createProfile = async (e) => {
     e.preventDefault();
     const formData = new FormData();
+
     formData.append("name", name);
     formData.append("vaccination", vaccine);
     formData.append("vaccine_date", selectVaccineDate);

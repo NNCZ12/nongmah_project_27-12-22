@@ -19,27 +19,6 @@ function ChooseImage({ handleGetImage }) {
     handleGetImage(e.target.files[0]);
   }
 
-  await axios
-      .post(`http://localhost:5000/image`, formData)
-      .then(({ data }) => {
-        Swal.fire({
-          icon: "success",
-          text: data.message,
-        });
-        navigate("/main");
-      })
-      .catch(({ response }) => {
-        if (response.status === 422) {
-          setValidationError(response.data.errors);
-        } else {
-          Swal.fire({
-            text: response.data.message,
-            icon: "error",
-          });
-        }
-      });
-  };
-
   return (
     <div>
       <div>

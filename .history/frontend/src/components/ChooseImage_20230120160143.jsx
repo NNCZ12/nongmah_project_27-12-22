@@ -20,7 +20,7 @@ function ChooseImage({ handleGetImage }) {
   }
 
   await axios
-      .post(`http://localhost:5000/image`, formData)
+      .post(`http://localhost:8000/api/dog_profiles`, formData)
       .then(({ data }) => {
         Swal.fire({
           icon: "success",
