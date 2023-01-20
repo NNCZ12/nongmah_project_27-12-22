@@ -9,6 +9,7 @@
         "preview": "vite preview"
     },
     "dependencies": {
+        v "@tensorflow/tfjs": "^4.2.0",
         "axios": "^1.2.1",
         "bootstrap": "^5.2.3",
         "fast-equals": "^4.0.3",
