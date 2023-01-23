@@ -38,30 +38,6 @@ function ChooseImage({ handleGetImage }) {
       });
     });
 
-  //To get image from the API
-
-  axios
-    .get("http://localhost:5000/image") // make a GET request to the API endpoint for image retrieval
-    .then((res) => {
-      // handle success response from the API call and set the image URL in state using setImageURL() method
-
-      setImageURL(res.data); // res.data will contain the image URL returned by the API call
-    })
-
-    .catch((err) => {
-      // handle error response from the API call and show an error message using SweetAlert2 library
-
-      Swal.fire({
-        // show an error message using SweetAlert2 library if there is an error while retrieving image from the API
-
-        title: "Error!", // set title of SweetAlert2 popup as Error!
-
-        text: err, // set text of SweetAlert2 popup as err which contains error message returned by the API call
-
-        icon: "error", // set icon of SweetAlert2 popup as error icon
-      });
-    });
-
   return (
     <div>
       <div>

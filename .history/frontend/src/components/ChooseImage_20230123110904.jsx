@@ -17,7 +17,7 @@ function ChooseImage({ handleGetImage }) {
   function onImageChange(e) {
     setImages([...e.target.files]);
     handleGetImage(e.target.files[0]);
-  }
+  }D
 
   const formData = new FormData();
   formData.append("image", images[0]);

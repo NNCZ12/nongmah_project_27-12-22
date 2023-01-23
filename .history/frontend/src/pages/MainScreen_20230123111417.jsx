@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
+
 import ProfileForm from "../components/ProfileForm";
 import ProfileList from "../components/ProfileList";
 import ClusterMap from "../components/ClusterMap";
 import imbg from "../assets/littledog.png";
+
 
 function MainScreen() {
   const [show_form, setShowForm] = useState(false);
@@ -30,7 +32,7 @@ function MainScreen() {
       {/* Profile List */}
       <ProfileList />
 
-   
+      <ImgDetect/>
       {/* Upload Button */}
       <div>
         <button
