@@ -6,7 +6,6 @@ import Swal from "sweetalert2";
 function ChooseImage({ handleGetImage }) {
   const [images, setImages] = useState([]);
   const [imageURL, setImageURL] = useState([]);
-  const [detectedImage, setDetectedImage] = useState([]);
 
   useEffect(() => {
     if (images.length < 1) return;
@@ -20,39 +19,31 @@ function ChooseImage({ handleGetImage }) {
     handleGetImage(e.target.files[0]);
   }
 
-  const createDetectImage = async (e) => {
+  const checkDogDetect = async (e) => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append("images", images[0]);
+    formData.append("ima", name);
+    
 
     await axios
-      .post(`http://localhost:5000/image`, formData)
-      .then((response) => {
-        // handle success
+      .post(`http://localhost:8000/api/dog_profiles`, formData)
+      .then(({ data }) => {
         Swal.fire({
-          title: "Success!",
-          text: "Image successfully posted.",
           icon: "success",
+          text: data.message,
         });
+        navigate("/main");
       })
-      .catch((error) => {
-        // handle error
-        Swal.fire({
-          title: "Error!",
-          text: "There was an error posting the image.",
-          icon: "error",
-        });
+      .catch(({ response }) => {
+        if (response.status === 422) {
+          setValidationError(response.data.errors);
+        } else {
+          Swal.fire({
+            text: response.data.message,
+            icon: "error",
+          });
+        }
       });
-  };
-
-  useEffect(() => {
-    fetchProfiles();
-  }, []);
-
-  const fetchProfiles = async () => {
-    await axios.get(API_URL).then(({ data }) => {
-      setDetectedImage(data);
-    });
   };
 
   return (

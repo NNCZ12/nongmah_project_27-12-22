@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 function ChooseImage({ handleGetImage }) {
   const [images, setImages] = useState([]);
   const [imageURL, setImageURL] = useState([]);
-  const [detectedImage, setDetectedImage] = useState([]);
+  const [detectedImage,setDetectedImage] = useState([]);
 
   useEffect(() => {
     if (images.length < 1) return;
@@ -20,32 +20,30 @@ function ChooseImage({ handleGetImage }) {
     handleGetImage(e.target.files[0]);
   }
 
-  const createDetectImage = async (e) => {
-    e.preventDefault();
-    const formData = new FormData();
-    formData.append("images", images[0]);
+  const
+  const formData = new FormData();
+  formData.append("images", images[0]); // images[0] is the first image selected by the user
 
-    await axios
-      .post(`http://localhost:5000/image`, formData)
-      .then((response) => {
-        // handle success
-        Swal.fire({
-          title: "Success!",
-          text: "Image successfully posted.",
-          icon: "success",
-        });
-      })
-      .catch((error) => {
-        // handle error
-        Swal.fire({
-          title: "Error!",
-          text: "There was an error posting the image.",
-          icon: "error",
-        });
+  axios
+    .post(`http://localhost:5000/image`, formData)
+    .then((response) => {
+      // handle success
+      Swal.fire({
+        title: "Success!",
+        text: "Image successfully posted.",
+        icon: "success",
       });
-  };
+    })
+    .catch((error) => {
+      // handle error
+      Swal.fire({
+        title: "Error!",
+        text: "There was an error posting the image.",
+        icon: "error",
+      });
+    });
 
-  useEffect(() => {
+    useEffect(() => {
     fetchProfiles();
   }, []);
 
@@ -54,6 +52,7 @@ function ChooseImage({ handleGetImage }) {
       setDetectedImage(data);
     });
   };
+
 
   return (
     <div>
