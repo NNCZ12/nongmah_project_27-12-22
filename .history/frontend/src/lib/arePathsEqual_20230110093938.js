@@ -1,1 +1,0 @@
-arePathsEqual.js

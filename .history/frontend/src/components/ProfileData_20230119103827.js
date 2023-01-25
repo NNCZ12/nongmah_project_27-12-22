@@ -1,3 +1,0 @@
-function P(params) {
-
-}
